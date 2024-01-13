@@ -1,28 +1,34 @@
-import { useState } from 'react'
+import { Component, useState } from 'react'
 import './App.css'
 
-function App() {
-  const [value, setCount] = useState()
+class App extends Component {
+  constructor(){
+    super()
+    this.state={
+      value:""
+    }
+}
 
-  return (
+  render() {
+    return(
     <div>
     <h4>Input</h4>
     <div className='flex'>
     
-    <textarea onChange={(e)=>{setCount(e.target.value)}}>
-    {value}
+    <textarea onChange={(e)=>{this.setState({value:e.target.value})}}>
+    {this.state.value}
     </textarea>
     <div>
     <div className='area'>
 
       <h3 className='h3'>
-        {value}
+        {this.state.value}
       </h3>
     </div>
     </div>
     </div>
-    </div>
-  )
+    </div>)
+  }
 }
 
 export default App
